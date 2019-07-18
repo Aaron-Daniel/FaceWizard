@@ -26,7 +26,7 @@ const CLIENT_ID = "ed244fb9-6410-412c-acda-9cbd02076f31"
 const HOME_URL = "https://musing-boyd-05e7b5.netlify.com/";
 const TEXT_VALIDATION_ERROR_MSG = "That doesn't look right. Try again.";
 const DAYS_TO_STORE_TOKEN = 1;
-let TDO_ID = "580723609";
+let TDO_ID = 580723609;
 let TDO_JSON = null;
 let _token = null;
 
@@ -370,9 +370,11 @@ async function handleJobButtonClick() {
 		
    // Get the query
    let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
+   console.log("Query ", query);
 
    // Create the payload
    let payload = createVeritonePayload( query, _token );
+   console.log("Payload ", payload);
 	
    // Kick off the job
    let json = await fetchJSONviaPOST( API_ENDPOINT, payload).catch(e=>{
