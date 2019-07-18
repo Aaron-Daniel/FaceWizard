@@ -21,7 +21,8 @@
 // GLOBALS
 const API_ENDPOINT = "https://api.veritone.com/v3/graphql";
 const AUTH_BASE  = "https://api.veritone.com/v1/admin/oauth/authorize?scope=all&response_type=token&client_id=";
-const CLIENT_ID = "caf06532-6787-45f3-a2e4-8ff02a55012f";
+//const CLIENT_ID = "caf06532-6787-45f3-a2e4-8ff02a55012f";
+const CLIENT_ID = "ed244fb9-6410-412c-acda-9cbd02076f31"
 const HOME_URL = "https://musing-boyd-05e7b5.netlify.com/";
 const TEXT_VALIDATION_ERROR_MSG = "That doesn't look right. Try again.";
 const DAYS_TO_STORE_TOKEN = 1;
