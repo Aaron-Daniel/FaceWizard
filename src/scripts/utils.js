@@ -30,7 +30,6 @@ let TDO_ID = 580940766;
 let TDO_JSON = null;
 let _token = null;
 let faceImageAddress = "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
-let test = 123;
 let ApiCallForEngineList = `query {
   engineCategories {
     records {
@@ -392,26 +391,7 @@ async function handleJobButtonClick() {
 		
    // Get the query
    //let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
-   let query = query {
-  engineCategories {
-    records {
-      id
-      name
-      engines(limit: 200) {
-        records {
-          id
-          name
-          fields {
-            name
-            options {
-              value
-            }
-          }
-        }
-      }
-    }
-  }
-}
+   let query = ApiCallForEngineList;
    console.log("Query ", query);
 
    // Create the payload
