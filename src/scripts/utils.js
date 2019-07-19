@@ -73,6 +73,31 @@ let createTDOWithAssetAPICall = `mutation createTDOWithAsset {
     }
   }
 }`
+let runEngineJobOnExistingTDO = `mutation runEngineJob {
+  createJob(
+    input: {
+      targetId: "580940766",
+      tasks: [
+        {
+          engineId: "d8da8d9c-a789-41a9-be4d-ac4abd55bb8c"
+        },
+        {
+          engineId: "insert-into-index"
+        },
+        {
+          engineId: "thumbnail-generator"
+        },
+        {
+          engineId: "mention-generate"
+        }
+      ]
+    }
+  )
+  {
+    id
+  }
+}
+`
 
 function showToken( selector, token ) {
     let TOKEN_MSG = "We have a token:<br/>" +
