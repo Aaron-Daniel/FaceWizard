@@ -30,7 +30,8 @@ let TDO_ID = 580940766;
 let TDO_JSON = null;
 let _token = null;
 let faceImageAddress = "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
-let ApiCallForEngineList = `query {
+let facialRecognitionEngineId = "d8da8d9c-a789-41a9-be4d-ac4abd55bb8c"
+let apiCallForEngineList = `query {
   engineCategories {
     records {
       id
@@ -46,6 +47,30 @@ let ApiCallForEngineList = `query {
             }
           }
         }
+      }
+    }
+  }
+}`
+let createTDOWithAssetAPICall = `mutation createTDOWithAsset {
+  createTDOWithAsset(
+    input: {
+      startDateTime: 1533761172,
+      stopDateTime: 1533761227,
+      contentType: "image/jpg",
+      assetType: "media",
+      addToIndex: true,
+      uri: "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
+    }
+  )
+  {
+    id
+    status
+    assets {
+      records {
+        id
+        type
+        contentType
+        signedUri
       }
     }
   }
@@ -391,7 +416,7 @@ async function handleJobButtonClick() {
 		
    // Get the query
    //let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
-   let query = ApiCallForEngineList;
+   let query = createTDOWithAsset;
    console.log("Query ", query);
 
    // Create the payload
