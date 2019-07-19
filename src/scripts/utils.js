@@ -416,7 +416,7 @@ async function handleJobButtonClick() {
 		
    // Get the query
    //let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
-   let query = createTDOWithAsset;
+   let query = createTDOWithAssetAPICall;
    console.log("Query ", query);
 
    // Create the payload
