@@ -30,7 +30,7 @@ let TDO_ID = 580940766;
 let TDO_JSON = null;
 let _token = null;
 let faceImageAddress = "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
-let ApiCallForEngineList = query {
+let ApiCallForEngineList = `query {
   engineCategories {
     records {
       id
@@ -49,7 +49,7 @@ let ApiCallForEngineList = query {
       }
     }
   }
-}
+}`
 
 function showToken( selector, token ) {
     let TOKEN_MSG = "We have a token:<br/>" +
