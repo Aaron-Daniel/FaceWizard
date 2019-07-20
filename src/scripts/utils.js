@@ -25,7 +25,7 @@ const CLIENT_ID = "ed244fb9-6410-412c-acda-9cbd02076f31"
 const HOME_URL = "https://musing-boyd-05e7b5.netlify.com/";
 const TEXT_VALIDATION_ERROR_MSG = "That doesn't look right. Try again.";
 const DAYS_TO_STORE_TOKEN = 1;
-let TDO_ID = 580940766;
+let TDO_ID = 581289087;
 let TDO_JSON = null;
 let _token = null;
 let faceImageAddress = "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
@@ -439,8 +439,8 @@ async function handleJobButtonClick() {
 		
    // Get the query
    //let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
-   //let query = createTDOWithAssetAPICall;
-   let query = runEngineJobOnExistingTDO;
+   let query = createTDOWithAssetAPICall;
+   //let query = runEngineJobOnExistingTDO;
    console.log("Query ", query);
 
    // Create the payload
