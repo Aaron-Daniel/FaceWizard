@@ -432,8 +432,8 @@ async function handleJobButtonClick() {
    // Get the query
    //let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
    //let query = createTDOWithAssetAPICall;
-   let query = apiCallForEngineList;
-   //let query = runEngineJobOnExistingTDO;
+   //let query = apiCallForEngineList;
+   let query = runEngineJobOnExistingTDO;
    console.log("Query ", query);
 
    // Create the payload
