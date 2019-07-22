@@ -421,7 +421,8 @@ async function handleCreateTDOButtonClick(){
 }
 
 async function handleRunEngineJob(){
-  handleJobButtonClick(runEngineJobOnExistingTDO);
+  let jobQuery = createTheJobQuery(TDO_ID, facialRecognitionEngineId);
+  handleJobButtonClick(jobQuery);
 }
 
 async function handleJobButtonClick(query) {
@@ -480,9 +481,9 @@ async function handleJobButtonClick(query) {
       }
 
       if (json.data.createTDOWithAsset){
-        TDO_ID = json.data.createTDOWithAsset.id
-        runEngineJobOnExistingTDO = runEngineJobOnExistingTDO.replace(/TDO_ID/, TDO_ID);
-        logToScreen("The TDO id is " + TDO_ID + ".\n", "#job_log");
+        let tdo_id = json.data.createTDOWithAsset.id
+        runEngineJobOnExistingTDO = runEngineJobOnExistingTDO.replace(/TDO_ID/, tdo_id);
+        logToScreen("The TDO id is " + tdo_id + ".\n", "#job_log");
       } 
     } // if json
 	
