@@ -463,12 +463,22 @@ async function handleJobButtonClick(query) {
 		showSnackbar("Error. Job aborted.");
 		return;
 	}
-	jobId = json.data.createJob.id;
-	logToScreen("The jobId is " + jobId + ".\n", "#job_log");
+
+  if (json.data.createJob && json.data.createJob.id){
+    jobId = json.data.createJob.id;
+  logToScreen("The jobId is " + jobId + ".\n", "#job_log");
         
-	logToScreen("We will poll for completion every " + POLL_INTERVAL/1000 + 
-		    " seconds, a maximum of " + MAX_POLL_ATTEMPTS + 
-		    " times.\n", "#job_log");
+  logToScreen("We will poll for completion every " + POLL_INTERVAL/1000 + 
+        " seconds, a maximum of " + MAX_POLL_ATTEMPTS + 
+        " times.\n", "#job_log");
+  }
+
+  if (json.data){
+    TDO_ID = json.data.createTDOWithAsset.id
+    logToScreen("The jobId is " + jobId + ".\n", "#job_log");
+
+  }
+	
            
 	   // create the Cancel button and display it
 	createCancelJobButton( tdo, "#addContentHere" ); 
