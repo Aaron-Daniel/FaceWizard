@@ -77,7 +77,7 @@ let createTDOWithAssetAPICall = `mutation createTDOWithAsset {
 let runEngineJobOnExistingTDO = `mutation runEngineJob {
   createJob(
     input: {
-      targetId: "580940766",
+      targetId: "TDO_ID",
       tasks: [
         {
           engineId: "d8da8d9c-a789-41a9-be4d-ac4abd55bb8c"
@@ -431,8 +431,8 @@ async function handleJobButtonClick(query) {
    clearScreenLog("#job_log");
 	
    if (!_token) {
-	showSnackbar("Looks like you need to log in first." , true );
-	return;
+	   showSnackbar("Looks like you need to log in first." , true );
+	   return;
    }
 	
    let tdo = TDO_ID;
@@ -458,37 +458,33 @@ async function handleJobButtonClick(query) {
    logToScreen( "We ran this query:\n\n" + query + "\n\n", "#job_log" );
 	
    if (json) {
-	logToScreen( "We got back this result:\n\n" + JSON.stringify(json,null,3) + "\n\n", "#job_log" );
-	if ('errors' in json) {
-		showSnackbar("Error. Job aborted.");
-		return;
-	}
+  	   logToScreen( "We got back this result:\n\n" + JSON.stringify(json,null,3) + "\n\n", "#job_log" );
+    	 if ('errors' in json) {
+    		  showSnackbar("Error. Job aborted.");
+    		  return;
+    	}
 
-  if (json.data.createJob){
-    jobId = json.data.createJob.id;
-  logToScreen("The jobId is " + jobId + ".\n", "#job_log");
-        
-  logToScreen("We will poll for completion every " + POLL_INTERVAL/1000 + 
-        " seconds, a maximum of " + MAX_POLL_ATTEMPTS + 
-        " times.\n", "#job_log");
-  }
-
-  if (json.data.createTDOWithAsset){
-    TDO_ID = json.data.createTDOWithAsset.id
-    logToScreen("The TDO id is " + TDO_ID + ".\n", "#job_log");
-
-  }
-	
-           
-	   // create the Cancel button and display it
-	createCancelJobButton( tdo, "#addContentHere" ); 
-
-	   // POLL FOR STATUS
+      if (json.data.createJob){
+        jobId = json.data.createJob.id;
+        logToScreen("The jobId is " + jobId + ".\n", "#job_log");
+            
+        logToScreen("We will poll for completion every " + POLL_INTERVAL/1000 + 
+            " seconds, a maximum of " + MAX_POLL_ATTEMPTS + 
+            " times.\n", "#job_log");
+        // create the Cancel button and display it
+        createCancelJobButton( tdo, "#addContentHere" ); 
+        // POLL FOR STATUS
         _pollkey = setInterval(()=>{
-                checkTheJobStatus(jobId, DEFAULT_ENGINE)
+              checkTheJobStatus(jobId, DEFAULT_ENGINE)
         }, POLL_INTERVAL);
-	   
-   } // if json
+      }
+
+      if (json.data.createTDOWithAsset){
+        TDO_ID = json.data.createTDOWithAsset.id
+        runEngineJobOnExistingTDO = runEngineJobOnExistingTDO.replace(/TDO_ID/, TDO_ID);
+        logToScreen("The TDO id is " + TDO_ID + ".\n", "#job_log");
+      } 
+    } // if json
 	
 } // handleJobButtonClick()
 
