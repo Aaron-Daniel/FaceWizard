@@ -416,7 +416,15 @@ async function cancelJob( jobID ) {
    logToScreen( "\nGot back:\n" + JSON.stringify(json,null,3), "#job_log" );
 }
 
-async function handleJobButtonClick() {
+async function handleCreateTDOButtonClick(){
+  handleJobButtonClick(createTDOWithAssetAPICall);
+}
+
+async function handleRunEngineJob(){
+  handleJobButtonClick(runEngineJobOnExistingTDO);
+}
+
+async function handleJobButtonClick(query) {
 	
    let jobId = "";
 	
@@ -433,8 +441,8 @@ async function handleJobButtonClick() {
    //let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
    //let query = createTDOWithAssetAPICall;
    //let query = apiCallForEngineList;
-   let query = runEngineJobOnExistingTDO;
-   console.log("Query ", query);
+   //let query = runEngineJobOnExistingTDO;
+   //console.log("Query ", query);
 
    // Create the payload
    let payload = createVeritonePayload( query, _token );
