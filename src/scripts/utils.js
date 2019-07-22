@@ -481,7 +481,8 @@ async function handleJobButtonClick(query) {
       }
 
       if (json.data.createTDOWithAsset){
-        let tdo_id = json.data.createTDOWithAsset.id
+        let tdo_id = json.data.createTDOWithAsset.id;
+        TDO_ID = tdo_id;
         runEngineJobOnExistingTDO = runEngineJobOnExistingTDO.replace(/TDO_ID/, tdo_id);
         logToScreen("The TDO id is " + tdo_id + ".\n", "#job_log");
       } 
