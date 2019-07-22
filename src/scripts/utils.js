@@ -464,7 +464,7 @@ async function handleJobButtonClick(query) {
 		return;
 	}
 
-  if (json.data.createJob && json.data.createJob.id){
+  if (json.data.createJob){
     jobId = json.data.createJob.id;
   logToScreen("The jobId is " + jobId + ".\n", "#job_log");
         
@@ -473,7 +473,7 @@ async function handleJobButtonClick(query) {
         " times.\n", "#job_log");
   }
 
-  if (json.data){
+  if (json.data.createTDOWithAsset){
     TDO_ID = json.data.createTDOWithAsset.id
     logToScreen("The jobId is " + jobId + ".\n", "#job_log");
 
