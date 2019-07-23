@@ -51,6 +51,17 @@ let apiCallForEngineList = `query {
     }
   }
 }`
+let createTDOApiCall = `mutation createTDO {
+  createTDO(
+    input: {
+      startDateTime: 1533761172,
+      stopDateTime: 1533761227
+    }
+  )
+  {
+    id
+  }
+}`;
 let createTDOWithAssetAPICall = `mutation createTDOWithAsset {
   createTDOWithAsset(
     input: {
@@ -73,7 +84,7 @@ let createTDOWithAssetAPICall = `mutation createTDOWithAsset {
       }
     }
   }
-}`
+}`;
 let runEngineJobOnExistingTDO = `mutation runEngineJob {
   createJob(
     input: {
@@ -417,7 +428,7 @@ async function cancelJob( jobID ) {
 }
 
 async function handleCreateTDOButtonClick(){
-  handleJobButtonClick(createTDOWithAssetAPICall);
+  handleJobButtonClick(createTDOApiCall);
 }
 
 async function handleRunEngineJob(){
