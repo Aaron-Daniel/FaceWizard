@@ -29,7 +29,7 @@ let TDO_ID = 581291014;
 let recordId = '581291014_kdQrLh8YaM'
 let TDO_JSON = null;
 let _token = null;
-let faceImageAddress = "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
+let faceImageAddress = "https://www.thegryphon.co.uk/wp-content/uploads/2017/03/boomsbeat.jpg"
 let facialRecognitionEngineId = "d8da8d9c-a789-41a9-be4d-ac4abd55bb8c"
 let apiCallForEngineList = `query {
   engineCategories {
@@ -58,7 +58,7 @@ let createTDOWithAssetAPICall = `mutation createTDOWithAsset {
       stopDateTime: 1533761227,
       contentType: "image/jpg",
       addToIndex: true,
-      uri: "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
+      uri: "https://www.thegryphon.co.uk/wp-content/uploads/2017/03/boomsbeat.jpg"
     }
   )
   {
@@ -613,7 +613,7 @@ function createTheJobQuery(tdoID, engineID) {
     tasks: [{
       engineId: "9e611ad7-2d3b-48f6-a51b-0a1ba40feab4",
       payload: {
-         url: "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
+         url: "https://www.thegryphon.co.uk/wp-content/uploads/2017/03/boomsbeat.jpg"
       }
     },{
       engineId: "ENGINE_ID"
