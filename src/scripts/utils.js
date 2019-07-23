@@ -586,7 +586,7 @@ function createCancelJobButton( jobID, selector ) {
   logToScreen( cancelbutton, selector );
 }
 
-function createTheJobQuery(tdoID, engineID) {
+/*function createTheJobQuery(tdoID, engineID) {
 
     let query = `mutation createJob{
   createJob(input: {
@@ -603,6 +603,27 @@ function createTheJobQuery(tdoID, engineID) {
 }`;
 	
     return query.replace(/TDO_ID/, tdoID).replace(/ENGINE_ID/, engineID);	
+}*/
+
+function createTheJobQuery(tdoID, engineID) {
+
+    let query = `mutation createJob {
+  createJob(input: {
+    targetId: "TDO_ID",
+    tasks: [{
+      engineId: "9e611ad7-2d3b-48f6-a51b-0a1ba40feab4",
+      payload: {
+         url: "https://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/w_sexy_gr.jpg"
+      }
+    },{
+      engineId: "ENGINE_ID"
+    }]
+  }) {
+    id
+  }
+}`;
+  
+    return query.replace(/TDO_ID/, tdoID).replace(/ENGINE_ID/, engineID); 
 }
 
 function createEngineResultsQuery(tdoID, engineID) {
